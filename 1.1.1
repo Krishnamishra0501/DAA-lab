@@ -1,0 +1,43 @@
+//first file (main.c)
+
+#include <stdio.h>
+
+void read1(int a[], int n);
+int linearSearch(int a[], int start, int end, int key);
+
+int main() {
+    int a[20], n, pos, key;
+    printf("Enter n value : ");
+    scanf("%d", &n);
+    read1(a, n);
+    printf("Enter a key element : ");
+    scanf("%d", &key);
+    pos = linearSearch(a, 0, n - 1, key);
+    if (pos == -1) {
+        printf("The key element %d is not found\n", key);
+    } else {
+        printf("The key element %d is found at position : %d\n", key, pos);
+    }
+    return 0;
+}
+
+
+//2nd file (Program911a.c)
+
+#include <stdio.h>
+
+void read1(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Enter element %d: ", i);
+        scanf("%d", &a[i]);
+    }
+}
+
+int linearSearch(int a[], int start, int end, int key) {
+    for (int i = start; i <= end; i++) {
+        if (a[i] == key)
+            return i;
+    }
+    return -1;
+}
+
